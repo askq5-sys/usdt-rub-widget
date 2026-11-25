@@ -1,47 +1,53 @@
 # USDT/RUB Widget (Rapira)
 
-Виджет курса **USDT/RUB** с биржи [Rapira](https://rapira.net) для Windows 11. Работает на встроенном PowerShell, ставить ничего не нужно.
+**English** | [Русский](README.ru.md)
 
-- 🔄 Курс обновляется каждые **5 секунд** (публичный API `api.rapira.net/open/market/rates`)
-- 🪟 Карточка на рабочем столе в стиле Windows 11: курс, изменение за 24 ч, bid/ask
-- 📌 Кнопку на панели задач можно закрепить, на ней стрелка роста или падения
-- 🔢 Значок в трее с целой частью курса, полный курс во всплывающей подсказке
-- 🚀 Автозапуск вместе с Windows (включается в меню)
+A lightweight **USDT/RUB** exchange rate widget for Windows 11, powered by the [Rapira](https://rapira.net) exchange. It runs on built-in Windows PowerShell, so there is nothing to install.
 
-## Установка
+- 🔄 Rate refreshes every **5 seconds** (public API `api.rapira.net/open/market/rates`)
+- 🪟 Windows 11-style desktop card: rate, 24h change, bid/ask
+- 📌 Pinnable taskbar button with an up/down trend badge
+- 🔢 Tray icon showing the whole-ruble rate, with the full rate in its tooltip
+- 🚀 Optional autostart with Windows
 
-1. Скачайте репозиторий: **Code → Download ZIP**.
-2. Правый клик по архиву → **Свойства** → отметьте **«Разблокировать»** → ОК.
-3. Распакуйте в постоянную папку, например `C:\Tools\UsdtRubWidget`.
-4. Запустите `Start-Widget.vbs` двойным кликом.
+## Installation
 
-## Закрепление на панели задач
+1. Download `UsdtRubWidget-vX.Y.Z.zip` from the [latest release](https://github.com/askq5-sys/usdt-rub-widget/releases/latest).
+2. Right-click the archive → **Properties** → tick **Unblock** → OK.
+3. Extract it to a permanent folder, e.g. `C:\Tools\UsdtRubWidget`.
+4. Double-click `Start-Widget.vbs`.
 
-Пока виджет запущен, правый клик по его кнопке на панели задач → **«Закрепить на панели задач»**.
-Другой способ: **Пуск** → «USDT RUB (Rapira)» → правый клик → **«Закрепить на панели задач»**.
+## Pinning to the taskbar
 
-## Управление
+While the widget is running, right-click its taskbar button → **Pin to taskbar**.
+Or: **Start** → "USDT RUB (Rapira)" → right-click → **Pin to taskbar**.
 
-| Действие | Где |
+## Controls
+
+| Action | How |
 |---|---|
-| Перетащить карточку | левой кнопкой мыши |
-| Обновить сейчас | двойной клик по карточке |
-| Меню (поверх окон, автозапуск, скрыть, закрыть) | правый клик по карточке или значку в трее |
-| Показать / скрыть карточку | левый клик по значку в трее |
+| Move the card | drag with the left mouse button |
+| Refresh now | double-click the card |
+| Menu (always on top, autostart, hide, close) | right-click the card or the tray icon |
+| Show / hide the card | left-click the tray icon |
 
-Если значок в трее спрятался под стрелкой «^», перетащите его на панель.
+If the tray icon is hidden under the "^" arrow, drag it onto the taskbar.
 
-## Настройки
+## Settings
 
-В начале `UsdtRubWidget.ps1`:
+At the top of `UsdtRubWidget.ps1`:
 
 ```powershell
-$RefreshSeconds = 5        # интервал обновления
+$RefreshSeconds = 5        # refresh interval
 $Symbol         = 'USDT/RUB'
 ```
 
-Положение карточки и прочие настройки хранятся в `%APPDATA%\UsdtRubWidget\config.json`.
+Window position and other preferences are stored in `%APPDATA%\UsdtRubWidget\config.json`.
 
-## Требования
+## Requirements
 
-Windows 10/11, Windows PowerShell 5.1 (встроен в систему).
+Windows 10/11 with Windows PowerShell 5.1 (included with the OS).
+
+## Disclaimer
+
+Rates are provided by Rapira's public API and shown for information only. They are not financial advice.
